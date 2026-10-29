@@ -1,0 +1,22 @@
+<html>
+<body>
+    <h2>Addition</h2>
+
+    <input id="a" placeholder="First number">
+    <input id="b" placeholder="Second number">
+
+    <button id="button" onclick="add()">Add</button>
+
+    <p id="result">Answer: </p>
+
+    <script>
+        function add() {
+            let a = Number(document.getElementById("a").value);
+            let b = Number(document.getElementById("b").value);
+
+            document.getElementById("result").innerHTML =
+                "Answer: " + (a + b);
+        }
+    </script>
+</body>
+</html>
