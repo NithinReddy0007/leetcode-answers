@@ -1,0 +1,90 @@
+10. Install and Explore Selenium for Automated Testing
+1. What is Selenium?
+- Selenium is an open-source tool used to automate web browsers.
+- It is used for testing web applications automatically without manual interaction.
+- It supports programming languages like Java, Python, and JavaScript.
+- It supports browsers like Chrome, Firefox, and Edge.
+2. Selenium Installation (Windows)
+Step 1: Install Python
+
+Check whether Python is installed:
+python --version
+
+
+Step 2: Install Selenium
+
+Open CMD or VS Code terminal:
+pip install selenium
+
+
+Step 3: Verify installation
+pip show selenium
+
+
+Step 4: Install Google Chrome
+
+Install Chrome if it is not already available.
+
+Note: Modern Selenium includes Selenium Manager, which can automatically manage the required browser driver.
+3. Explore Selenium Environment
+Create a Python file named test.py.
+from selenium import webdriverdriver = webdriver.Chrome()driver.get("https://www.google.com")print(driver.title)driver.quit()
+
+
+
+Output:
+Google
+
+
+Explanation:
+- webdriver.Chrome() – Opens Chrome browser.
+- driver.get() – Opens the specified website.
+- driver.title – Retrieves the webpage title.
+- driver.quit() – Closes the browser.
+4. Example: Automated Testing
+Create an HTML file named index.html.
+<html>
+<body>
+    <h2>Login Page</h2>
+
+    <input id="username" placeholder="Username">
+    <button id="login">Login</button>
+
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("login").onclick = function() {
+            document.getElementById("result").innerHTML =
+                "Login Successful";
+        };
+    </script>
+</body>
+</html>
+
+
+Create test.py:
+from selenium import webdriverfrom selenium.webdriver.common.by import Bydriver = webdriver.Chrome()driver.get("file:///D:/vs_codes/myjava/index.html")driver.find_element(By.ID, "username").send_keys("admin")driver.find_element(By.ID, "login").click()result = driver.find_element(By.ID, "result").textif result == "Login Successful":    print("Test Passed")else:    print("Test Failed")driver.quit()
+
+
+
+Output:
+Test Passed
+
+
+5. Important Selenium Commands
+Command	Purpose
+webdriver.Chrome()	Opens Chrome
+driver.get(url)	Opens a website
+driver.title	Gets page title
+driver.current_url	Gets current URL
+find_element()	Finds an HTML element
+send_keys()	Enters text
+click()	Clicks an element
+clear()	Clears input
+driver.quit()	Closes browser
+
+6. Advantages of Selenium
+1. Reduces manual testing effort.
+2. Supports multiple browsers and programming languages.
+3. Helps identify errors in web applications.
+4. Supports automated and repeated testing.
